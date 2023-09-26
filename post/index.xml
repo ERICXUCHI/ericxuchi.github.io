@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts | Chi Xu</title><link>https://ericxuchi.github.io/post/</link><atom:link href="https://ericxuchi.github.io/post/index.xml" rel="self" type="application/rss+xml"/><description>Posts</description><generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 25 Sep 2023 00:00:00 +0000</lastBuildDate><image><url>https://ericxuchi.github.io/media/icon_huc93de1c233e348d2c69380e0d77d80cd_29657_512x512_fill_lanczos_center_3.png</url><title>Posts</title><link>https://ericxuchi.github.io/post/</link></image><item><title>Linux Common Command</title><link>https://ericxuchi.github.io/post/linux_cmd/</link><pubDate>Mon, 25 Sep 2023 00:00:00 +0000</pubDate><guid>https://ericxuchi.github.io/post/linux_cmd/</guid><description>&lt;h2 id="linux-common-command">Linux Common Command&lt;/h2>
+&lt;p>&lt;code>By Eric Xu Chi&lt;/code>&lt;/p>
+&lt;p>&lt;code>Last updated: 2023.9.25&lt;/code>&lt;/p>
+&lt;h2 id="version-of-linux">version of Linux&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">lsb_release -a
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># 所有版本信息
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cat /etc/issue
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># 发行版版本信息
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cat /proc/version
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">uname -a
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># 操作系统版本信息，内核版本
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="ls">ls&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">ls -lh
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># all info
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ls -l t*
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># all start with t
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ls | sed &amp;#34;s:^:pwd/:&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># all absolute path excluding hidden file
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">find $pwd -maxdepth 1 | xargs ls -ld
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># all absolute path including hidden file
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="mkdir">mkdir&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">mkdir -p /tmp/test/t1/t
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># -p: 可以是一个路径名称。此时若路径中的某些目录尚不存在,加上此选项后，系统将自动建立好那些尚不在的目录，即一次可以建立多个目录。
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="find">find&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">which 查看可执行文件的位置。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># which 是在 PATH 就是指定的路径中，搜索某个系统命令的位置，并返回第一个搜索结果。使用 which 命令，就可以看到某个系统命令是否存在，以及执行的到底是哪一个位置的命令。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">whereis 查看文件的位置。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">locate 配合数据库查看文件位置。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">find 实际搜寻硬盘查询文件名称。slow
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># find ./ -name &amp;#39;*.log
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="compress-and-decompress">compress and decompress&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">gzip 实例：压缩 gzip fileName .tar.gz 和.tgz 解压：gunzip filename.gz 或 gzip -d filename.gz
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">对应：tar zcvf filename.tar.gz tar zxvf filename.tar.gz
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">bz2实例：压缩 bzip2 -z filename .tar.bz2 解压：bunzip filename.bz2或bzip -d filename.bz2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">对应：tar jcvf filename.tar.gz 解压：tar jxvf filename.tar.bz2
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">zip [-v] ana.zip anaconda-ks.cfg
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">unzip -d /tmp/ ana.zip
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">unzip -v ana.zip
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># look into the zip info but not unzip actually
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">由于安装的zip、rar包等都只能解压或压缩某一种压缩包，这里提供一个小工具，支持解压格式：.tar， .zip， .rar， .7z，支持压缩/打包格式：.zip，.tar
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># 下载安装工具
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">curl -L -o /usr/bin/arc http://autodl-public.ks3-cn-beijing.ksyun.com/tool/arc &amp;amp;&amp;amp; chmod +x /usr/bin/arc
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># 压缩/打包
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">arc compress xxx.zip path/to/directory
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># 解压
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">arc decompress xxx.zip
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">或者解压到指定目录
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">arc decompress xxx.zip path/to/directory
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="file-and-folder-size">file and folder size&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">du -h --max-depth=1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ll -h = ls -lh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="process-number">process number&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">ps -aux | grep apache
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="free">free&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">free -m
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># 显示系统内存使用情况，包括物理内存、交互区内存(swap)和内核缓冲区内存。
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="vim">vim&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">以下命令请在普通模式执行
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">1.移动光标
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">j：向下
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">20j： 向下移动 20 行
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">k：向上
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">h：向左
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">l：向右
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">0：到行首
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">^：到行首第一个字符，如果前面有空格的话
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$：到行尾
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">gg：快速到文件头
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">G：快速到文件尾
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">50G：跳转到第 50 行
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">按「ctrl」+「b」：屏幕往&amp;#34;后&amp;#34;移动一页。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">按「ctrl」+「f」：屏幕往&amp;#34;前&amp;#34;移动一页。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">按「ctrl」+「u」：屏幕往&amp;#34;后&amp;#34;移动半页。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">按「ctrl」+「d」：屏幕往&amp;#34;前&amp;#34;移动半页。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">请不要在插入模式进行光标移动，效率很低下。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">========================================
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2.复制
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">yy：复制一行
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">8yy：向下复制8行
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">yw：复制光标开始的一个单词
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">y$：复制光标到行尾
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">yfA：复制光标到第一个大写A中间的内容
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">y2fA：复制光标到第二个大写A中间的内容
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">========================================
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">3.剪切
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">x：向后剪切一个一个字符，如果是在行尾，则为向前剪切
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">4x：剪切4个
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">xp：非行尾交换两个字符，如从bs变成sb
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">========================================
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">4.删除
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dd：删除一行
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">100dd：删除100行
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dw：删除一个单词
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">df&amp;#34;：删除到出现的第一个双引号
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">d^：删除至行首
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">删除的内容会放到剪贴板，按p即可粘贴到其他地方。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">========================================
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">5.粘贴
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">p：粘贴复制或剪切的内容
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">5p：将复制或剪切的内容粘贴5次
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">========================================
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">6.替换和撤销
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">r+&amp;lt;待替换字母&amp;gt;：将游标所在字母替换为指定字母
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">R：连续替换，直到按下Esc
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cc：替换整行，即删除游标所在行，并进入插入模式
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cw：替换一个单词，即删除一个单词，并进入插入模式
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">u{n}：撤销一次或n次操作
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">U(大写)：撤销当前行的所有修改
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Ctrl+r：redo，即撤销undo的操作
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">========================================
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">7.退出编辑器
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">wq：保存当前文件并退出
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">wqa：保存所有文件并退出
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">q!： 不保存，强制退出
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">qa!： 有多个文件被打开，同时退出
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">以下命令请在命令模式下执行
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">在普通模式下，输入:即可进入。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">调整文本
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">%s/$/sth/ ：在行尾追加sth
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">%s/^M//g ：替换掉dos换行符，\^M使用ctrl+v + Enter即可输入
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">:g/^\s$/d* ：删除空行以及只有空格的行
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">%s/#.*//g ：删除#之后的字符
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">没错，这里使用的是正则。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ce：使本行文本内容居中
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ri：使本行文本内容靠右
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">le：使本行文本内容靠左
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">========================================
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">查找字符串
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">在普通模式下，按下/直接进入查找，输入相应的字符串按确定即可
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">n：查找下一个匹配
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">N：查找上一个匹配
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2n：查找下面第二个匹配
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>more: &lt;a href="https://cloud.tencent.com/developer/article/1671410" target="_blank" rel="noopener">[一张图记住 Vim 常用命令]&lt;/a> &lt;a href="https://zhuanlan.zhihu.com/p/89042423" target="_blank" rel="noopener">[10 分钟上手 Vim]&lt;/a>&lt;/p></description></item></channel></rss>
