@@ -34,6 +34,9 @@ Click on the &lt;strong>Slides&lt;/strong> button above to view the built-in sli
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">find $pwd -maxdepth 1 | xargs ls -ld
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># all absolute path including hidden file
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ls -l | grep &amp;#34;^d&amp;#34; | wc -l
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># count subdir number
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="mkdir">mkdir&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">mkdir -p /tmp/test/t1/t
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># -p: 可以是一个路径名称。此时若路径中的某些目录尚不存在,加上此选项后，系统将自动建立好那些尚不在的目录，即一次可以建立多个目录。
@@ -333,7 +336,7 @@ console.log('code block');
 &lt;p>Wowchemy supports the popular &lt;a href="https://plot.ly/" target="_blank" rel="noopener">Plotly&lt;/a> format for interactive charts.&lt;/p>
 &lt;p>Save your Plotly JSON in your page folder, for example &lt;code>line-chart.json&lt;/code>, and then add the &lt;code>{{&amp;lt; chart data=&amp;quot;line-chart&amp;quot; &amp;gt;}}&lt;/code> shortcode where you would like the chart to appear.&lt;/p>
 &lt;p>Demo:&lt;/p>
-&lt;div id="chart-523981764" class="chart">&lt;/div>
+&lt;div id="chart-621345879" class="chart">&lt;/div>
 &lt;script>
 (function() {
 let a = setInterval( function() {
@@ -342,7 +345,7 @@ return;
 }
 clearInterval( a );
 Plotly.d3.json("./line-chart.json", function(chart) {
-Plotly.plot('chart-523981764', chart.data, chart.layout, {responsive: true});
+Plotly.plot('chart-621345879', chart.data, chart.layout, {responsive: true});
 });
 }, 500 );
 })();
